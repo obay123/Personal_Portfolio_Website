@@ -30,7 +30,7 @@ menuIcon.onclick = () => {
 let navbarLinks = document.querySelectorAll(".navbar a");
 // Assuming 'navLinks' is your NodeList of anchor tags as defined previously
 navbarLinks.forEach(link => {
-  link.addEventListener('click', function() {
+  link.addEventListener('click', function () {
     // Remove 'active' class from all links
     navbarLinks.forEach(link => {
       link.classList.remove('active');
@@ -42,7 +42,7 @@ navbarLinks.forEach(link => {
 
 
 
-document.addEventListener('scroll', function() {
+document.addEventListener('scroll', function () {
   var header = document.querySelector('header');
   var scrolled = window.scrollY > 0;
 
@@ -50,5 +50,13 @@ document.addEventListener('scroll', function() {
   header.classList.toggle('scrolled', scrolled);
 });
 
+
+var typingEffect = new Typed(".typedText", {
+  strings: ["Web Developer", "Database Administrator", "Video Editor", "Self Learner"],
+  loop: true,
+  typeSpeed:100,
+  backSpeed:80,
+  backDelay:2000,
+})
 
 
