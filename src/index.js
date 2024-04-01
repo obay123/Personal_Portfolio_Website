@@ -54,3 +54,21 @@ var typingEffect = new Typed(".typedText", {
 })
 
 
+const observer = new IntersectionObserver((entries) =>{
+  entries.forEach((entry)=>{
+  console.log(entry)  
+  if(entry.isIntersecting){
+    entry.target.classList.add('show')
+  }else{
+    entry.target.classList.remove('show')
+  }
+
+  })
+} )
+
+ let skillBar = document.querySelectorAll(".skill-bar")
+ let skillPer = document.querySelectorAll(".skill-per")
+
+
+ 
+ skillPer.forEach((el)=> observer.observe(el)) 
