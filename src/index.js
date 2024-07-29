@@ -86,7 +86,7 @@ const observer = new IntersectionObserver((entries) =>{
       message: document.getElementById('message').value
   };
 
-  const response = await fetch('./api/send.js', {
+  const response = await fetch('/api/send', {
       method: 'POST',
       headers: {
           'Content-Type': 'application/json'
