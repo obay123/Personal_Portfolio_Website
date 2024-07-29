@@ -73,7 +73,7 @@ const observer = new IntersectionObserver((entries) =>{
  
  skillPer.forEach((el)=> observer.observe(el)) 
 
- 
+
 
  document.getElementById('contact-form').addEventListener('submit', async function(event) {
   event.preventDefault();
@@ -86,7 +86,7 @@ const observer = new IntersectionObserver((entries) =>{
       message: document.getElementById('message').value
   };
 
-  const response = await fetch('/api/send', {
+  const response = await fetch('./api/send.js', {
       method: 'POST',
       headers: {
           'Content-Type': 'application/json'
