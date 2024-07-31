@@ -719,6 +719,7 @@ z-index: -2px;
 
         .contact form .input-box input,
         .contact form textarea {
+           
             width: 100%;
             padding: 1.5rem;
             font-size: 1.6rem;
@@ -731,10 +732,21 @@ z-index: -2px;
 
         }
 
-      
-        .contact form .btn{
-            margin-top: 2rem;
+        input::placeholder{  
+            color: rgba(0, 0, 0, 0.623);
+            transition: 0.5s ease;
         }
+
+        input:focus::placeholder{
+            color: rgb(153, 153, 153);
+            transform: translateX(-20%);
+        }
+
+
+      
+            .contact form .btn{
+                margin-top: 2rem;
+            }
 
 
                     /*  footer  section  */
@@ -988,3 +1000,26 @@ section{
     font-weight: 900;
     font-size: larger;
 }
+
+.message {
+    font-size: 16px;
+    width: 100%;
+    position: fixed;
+    bottom: 0;
+    height: auto;
+    padding: 10px;
+    box-sizing: border-box;
+    text-align: center;
+    color: white;
+    animation: fadeOut 1s ease 2s forwards;
+}
+@keyframes fadeOut {
+    0% {
+      opacity: 1;
+      visibility: visible;
+    }
+    100% {
+      opacity: 0;
+      visibility: hidden;
+    }
+  }

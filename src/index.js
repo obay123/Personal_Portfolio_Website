@@ -68,35 +68,51 @@ const observer = new IntersectionObserver((entries) =>{
 
  let skillBar = document.querySelectorAll(".skill-bar")
  let skillPer = document.querySelectorAll(".skill-per")
-
-
- 
  skillPer.forEach((el)=> observer.observe(el)) 
 
 
+ const form = document.querySelector('#contact-form') 
+ const Name = document.getElementById("name")
+ const mail =document.getElementById("email")
+ const phone =document.getElementById("phone")
+ const subject =document.getElementById("subject")
+ const message = document.getElementById("message")
 
- document.getElementById('contact-form').addEventListener('submit', async function(event) {
-  event.preventDefault();
+function sendEmail(){
+   const emailBody = `name : ${Name.value}<br> Email : ${mail.value}<br>phone : ${phone.value}<br>
+                               message:${message.value}`
+  Email.send({
+    Host : "smtp.elasticemail.com",
+    Username : "obay.kadour999@gmail.com",
+    Password : "0EBC399EC76FFE26756C155651D7A86FE596",
+    To : 'obay.kadour999@gmail.com',
+    From : "obay.kadour999@gmail.com",
+    Subject : subject.value,
+    Body : emailBody
+  }).then(message => {
+    if (message == "OK") {
+      let messageDiv = createMessageDiv("Email sent successfully!", "green");
+      document.body.appendChild(messageDiv);
 
-  const formData = {
-      name: document.getElementById('name').value,
-      email: document.getElementById('email').value,
-      phone: document.getElementById('phone').value,
-      subject: document.getElementById('subject').value,
-      message: document.getElementById('message').value
-  };
+    } else {
+      let messageDiv = createMessageDiv("Error in sending the email", "red");
+      document.body.appendChild(messageDiv);
 
-  const response = await fetch('/api/send', {
-      method: 'POST',
-      headers: {
-          'Content-Type': 'application/json'
-      },
-      body: JSON.stringify(formData)
+    }
   });
+}
+form.addEventListener("submit",(e)=>{
+  e.preventDefault()
+  sendEmail()
+})
 
-  if (response.ok) {
-      alert('Message sent successfully!');
-  } else {
-      alert('Failed to send the message.');
-  }
-});
+
+
+  function createMessageDiv(message, color) {
+    const div = document.createElement('div');
+    div.className = 'message';
+    div.style.backgroundColor = color;
+    div.textContent = message;
+    return div;
+}
+
