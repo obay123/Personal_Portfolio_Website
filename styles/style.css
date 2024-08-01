@@ -324,6 +324,13 @@ span{
     }
 }
 
+.construction{
+    font-size: 1.8rem;
+   
+   background-color: red;
+   width: fit-content;
+   color: white;
+}
                     /* Services Section */
 
 
