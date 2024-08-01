@@ -167,18 +167,38 @@ span{
     border-radius:  50%;
 }
 
+
+
 .home-img img{
     position: relative;
     width: 32vw;
     height: 75vh;
     border-radius: 50%;
-    box-shadow: 0 0 25px var(--main-color);
     cursor: pointer;
+   animation: breathing 3s ease infinite    ;
 }
-.home-img img:hover{
+/* .home-img img:hover{
     transform: scale(1.01);
     filter: drop-shadow(0 0 25px var(--main-color));
 
+} */
+
+@keyframes breathing {
+    0% {
+        
+        transform: scale(1);
+        
+    }
+    50% {
+        box-shadow: 0 0 30px var(--main-color);
+        transform: scale(1.02); /* Slightly increase the scale for a breathing effect */
+        filter: drop-shadow(0 0 25px var(--main-color)); /* Add a gentle shadow */
+    }
+    100% {
+        
+        transform: scale(1);
+        
+    }
 }
 .home-content p{
     font-size: 1.8rem;
@@ -530,6 +550,8 @@ background: var(--second-bg-color);
 }
 .education h2{
     font-size: 30px;
+    margin-bottom: 0.8rem;
+    font-weight: 7  00;
 }
 
 .education .timeline {
@@ -686,7 +708,7 @@ z-index: -2px;
 }
 
 .education .timeline{
-    margin-top: 12rem;
+    margin-top: 10rem;
 }
 
 
