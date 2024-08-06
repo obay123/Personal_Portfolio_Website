@@ -74,12 +74,40 @@ header.scrolled {
 }
 
 .navbar a {
+    transform: translateY(30px);
+    animation: fadeInMoveUp 1s ease forwards;
+    opacity: 0;
+    display: inline-block;
     font-size: 2rem;
     color: var(--text-color);
     margin-left: 6rem;
     font-weight: 700;
     transition: 0.3 ease;
     border-bottom: 3px solid transparent;
+}
+
+nav a:nth-child(2) {
+    animation-delay: 0.25s; 
+}
+
+nav a:nth-child(3) {
+    animation-delay: 0.5s; 
+}
+nav a:nth-child(4) {
+    animation-delay: 0.75s; 
+}
+nav a:nth-child(5) {
+    animation-delay: 1s; 
+}
+nav a:nth-child(6) {
+    animation-delay: 1.25s; 
+}
+
+@keyframes fadeInMoveUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 .navbar a:hover {
@@ -1010,7 +1038,7 @@ footer .copyright {
 
 .projects {
     background: var(--bg-color);
-    margin-top: 7rem;
+    margin-top: 5rem;
 }
 
 .projects h2 {
@@ -1031,6 +1059,7 @@ footer .copyright {
     box-shadow: 0 0 1rem var(--main-color);
     overflow: hidden;
     display: flex;
+    transition: 0.5s ease; /* Added transition for smooth effect */
 }
 
 .project-box img {
@@ -1052,7 +1081,8 @@ footer .copyright {
     left: 0;
     width: 100%;
     height: 100%;
-    background: linear-gradient(rgba(0, 0, 0, 0.1) var(--main-color));
+    background: linear-gradient(rgba(0, 0, 0, 0.1), var(--main-color));
+    display: flex; /* Changed to display flex */
     justify-content: center;
     align-items: center;
     flex-direction: column;
@@ -1087,24 +1117,25 @@ footer .copyright {
     transition: 0.5s ease;
 }
 
-
 .project-layer i {
     font-size: 2rem;
     color: white;
     transition: 0.5s ease;
-
 }
 
 .project-layer a:hover i {
-    transform: scale(1.1);
-    transform: rotateZ(360deg);
+    transform: scale(1.1) rotateZ(360deg);
     color: var(--main-color);
-
 }
 
 .project-layer a:hover {
     transform: scale(1.1);
     background: var(--bg-color);
+}
+
+/* Styles for non-hovered boxes when one box is hovered */
+.project-container:hover .project-box:not(:hover){
+    filter:  contrast(1.2) brightness(0.7); /* Basic old photo effect */
 }
 
 /* Media query for smaller screens */
@@ -1135,13 +1166,12 @@ footer .copyright {
     .project-layer a {
         width: 3rem;
         height: 3rem;
+    }
 
-        .project-layer i {
-            font-size: 1rem;
-        }
+    .project-layer i {
+        font-size: 1rem;
     }
 }
-
 
 .coming-soon {
     margin-top: 6rem;
@@ -1172,4 +1202,21 @@ footer .copyright {
         opacity: 0;
         visibility: hidden;
     }
+}
+
+
+.animated-element {
+    opacity: 0;
+    transform: translateY(-20px);
+    animation: fadeIn 1s ease-out forwards;
+}
+
+@keyframes fadeIn {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+.delay1{
+    animation-delay: 2s;
 }
