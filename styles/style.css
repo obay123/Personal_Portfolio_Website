@@ -57,25 +57,21 @@ header {
 }
 
 header.scrolled {
-
     background: rgb(157, 250, 194);
 }
 
 .logo {
-    font-size: 3rem;
-    color: var(--text-color);
-    font-weight: 700;
-    cursor: pointer;
-    transition: 0.5s ease;
-}
-
-.logo:hover {
-    transform: scale(1.3);
+    font-size: 2em;
+    font-family: Arial, sans-serif;
+    position: relative;
+    display: inline-block;
+    overflow: hidden;
+    color: black;
 }
 
 .navbar a {
-    transform: translateY(30px);
-    animation: fadeInMoveUp 1s ease forwards;
+    transform: translateY(-30px);
+    animation: fadeInMoveDown 0.5s ease forwards;
     opacity: 0;
     display: inline-block;
     font-size: 2rem;
@@ -85,25 +81,24 @@ header.scrolled {
     transition: 0.3 ease;
     border-bottom: 3px solid transparent;
 }
-
 nav a:nth-child(2) {
-    animation-delay: 0.25s; 
+    animation-delay: 0.15s; 
 }
 
 nav a:nth-child(3) {
-    animation-delay: 0.5s; 
+    animation-delay: 0.30s; 
 }
 nav a:nth-child(4) {
-    animation-delay: 0.75s; 
+    animation-delay: 0.45s; 
 }
 nav a:nth-child(5) {
-    animation-delay: 1s; 
+    animation-delay: 0.60s; 
 }
 nav a:nth-child(6) {
-    animation-delay: 1.25s; 
+    animation-delay: 0.75s; 
 }
 
-@keyframes fadeInMoveUp {
+@keyframes fadeInMoveDown {
     to {
         opacity: 1;
         transform: translateY(0);
@@ -117,17 +112,14 @@ nav a:nth-child(6) {
 
 #menu-icon {
     font-size: 3.6rem;
-    color: var(--main-color);
-    
+    color: var(--main-color);  
     display: none;
-
 }
 
 @media (max-width:995px) {
     #menu-icon {
         display: block;
     }
-
     .navbar {
         position: absolute;
         top: 100%;
@@ -143,28 +135,22 @@ nav a:nth-child(6) {
         display: none;
         text-align: center;
         height: 35rem;
-
     }
-
     .navbar.active {
         display: block;
     }
-
     .navbar a {
         display: block;
         font-size: 2rem;
         margin: 2rem;
 
     }
-
     .navbar a:hover,
     .navbar a.active {
         padding: 1rem;
         border-radius: 0.5rem;
         border-bottom: 0.5rem solid var(--main-color);
     }
-
-
 }
 
 section {
@@ -1207,7 +1193,7 @@ footer .copyright {
 
 .animated-element {
     opacity: 0;
-    transform: translateY(-20px);
+    transform: translateY(-40px);
     animation: fadeIn 1s ease-out forwards;
 }
 
@@ -1219,4 +1205,72 @@ footer .copyright {
 }
 .delay1{
     animation-delay: 2s;
+}
+
+.animated-element2{
+    opacity: 0;
+    transform: translateX(60px);
+    animation: fadeIn 1s ease-out forwards;
+}
+@keyframes fadeIn2 {
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+
+.animated-element3{
+    opacity: 0;
+    transform: translateX(100px);
+    animation: bounceToLeft ease 1s  forwards ;
+}
+
+@keyframes bounceToLeft {
+    0%{
+        opacity: 0;
+        transform: translateX(100px);
+    }
+
+  
+    20%{
+        opacity: 1;
+        transform: translateX(-5px);
+    }
+    100%{
+        opacity: 1;
+        transform: translateX(0px);
+    }
+}
+
+.social-icon a:nth-child(2){
+    animation-delay: 0.25s;
+}
+.social-icon a:nth-child(3){
+    animation-delay: 0.5s;
+}
+.social-icon a:nth-child(4){
+    animation-delay: 0.75s;
+}
+.social-icon a:nth-child(5){
+    animation-delay: 1s;
+}
+
+
+.animated-element4{
+    opacity: 1;
+    animation: bounceFade 1.5s ease-out ;
+}
+
+@keyframes bounceFade {
+    0%,20%,40%,60%,80%{
+        opacity: 0;
+    }
+    10%,30%,50%,70%{
+        opacity: 1;
+        filter: drop-shadow(0 0 25px var(--main-color));
+    }
+    100%{
+        opacity: 1;
+    }
 }
