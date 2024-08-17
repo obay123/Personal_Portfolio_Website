@@ -71,7 +71,6 @@ header.scrolled .navbar a:hover {
    
 .logo {
     font-size: 2.8em;
-   
     font-family: 'Rosaline', cursive;
     position: relative;
     display: inline-block;
@@ -84,6 +83,7 @@ height: 2rem;
 
 .navbar a {
     background-color:  rgba(9, 243, 102, 0.399);
+    isolation: i;
     border-radius: 3rem;
     padding:0 0.9rem 0 0.9rem ;
     transform: translateY(-30px);
@@ -95,10 +95,9 @@ height: 2rem;
     margin-left: 3rem;
     font-weight: 600;
     transition: 0.3s ease;
-    box-shadow: 0px 0px 15px 5px rgba(0, 0, 0, 0.2);
-    
-
+    box-shadow: 0 0 1rem var(--main-color);
 }
+
 nav a:nth-child(2) {
     animation-delay: 0.15s; 
 }
@@ -125,8 +124,8 @@ nav a:nth-child(6) {
 }
 
 .navbar a:hover {   
-    background: transparent;
-     border-bottom: 5px solid  rgba(9, 243, 102, 0.399);
+     background: transparent;
+     border-bottom: 2px solid  rgba(9, 243, 102, 0.399);
      box-shadow:unset;
 }
 
@@ -141,7 +140,9 @@ nav a:nth-child(6) {
         display: block;
     }
     header{
+        margin: 0;
         background: rgb(157, 250, 194);
+        height: 7rem;
     }
     .navbar {
         position: absolute;
@@ -158,6 +159,7 @@ nav a:nth-child(6) {
         display: none;
         text-align: center;
         height: 35rem;
+        margin: 0;
     }
     .navbar.active {
         display: block;
@@ -262,6 +264,7 @@ span {
     background: var(--main-color);
     box-shadow: 0 0 25px var(--main-color);
 }
+
 
 .btn {
     display: inline-block;
@@ -427,13 +430,13 @@ span {
 
 .services {
     background: var(--second-bg-color);
-  
 
 }
 
 .services h2 {
     font-size: 5rem;
     padding-bottom: 20px;
+  
 }
 
 .services-container {
@@ -447,8 +450,9 @@ span {
     background-color: var(--main-color);
     height: 300px;
     border-radius: 3rem;
-    cursor: pointer;
-    transition: 0.3s ease;
+    cursor: pointer;    
+    transition: 1s ease;
+   
 }
 
 .service-box:hover {
@@ -673,10 +677,10 @@ span {
 
 @media (max-width: 576px) {
     .heading h2 {
-        font-size: 2rem;
+        font-size: 4rem;
     }
     span {
-        font-size: 2rem;
+        font-size: 4rem;
     }
     .skill {
         grid-template-columns: 1fr;
@@ -866,7 +870,7 @@ span {
 }
 
 .education .timeline {
-    margin-top: 10rem;
+    margin-top: 8rem;
 }
 
 
@@ -1052,6 +1056,7 @@ footer .copyright {
 }
 
 .projects h2 {
+    margin-top: 0;
     margin-bottom: 4rem;
     font-size: 5rem;
 }
@@ -1151,7 +1156,7 @@ footer .copyright {
 /* Media query for smaller screens */
 @media screen and (max-width: 768px) {
     .project-container {
-        grid-template-columns: repeat(2, 1fr);
+        grid-template-columns: repeat(1, 1fr);
         gap: 1.5rem;
     }
 
@@ -1201,7 +1206,7 @@ footer .copyright {
     color: white;
     animation: fadeOut 1s ease 2s forwards;
 }
-
+/* ---------------------------------------------------- */
 @keyframes fadeOut {
     0% {
         opacity: 1;
@@ -1217,8 +1222,8 @@ footer .copyright {
 
 .animated-element {
     opacity: 0;
-    transform: translateY(-40px);
-    animation: fadeIn 1s ease-out forwards;
+    transform: translateY(-120px);
+    animation: fadeIn 1.5s ease-out forwards;
 }
 
 @keyframes fadeIn {
@@ -1233,9 +1238,10 @@ footer .copyright {
 
 .animated-element2{
     opacity: 0;
-    transform: translateX(60px);
-    animation: fadeIn 1s ease-out forwards;
+    transform: translateX(200px);
+    animation: fadeIn 1.5s ease forwards;
 }
+
 @keyframes fadeIn2 {
     to {
         opacity: 1;
@@ -1297,4 +1303,79 @@ footer .copyright {
     100%{
         opacity: 1;
     }
+}
+@keyframes fadein {
+    to{
+        opacity: 1;
+    } 
+}
+
+.heading{
+    transform: translateY(-40px);
+    opacity: 0;
+}
+
+.showHeaders{
+    animation: fadeIn 1s ease-out forwards;
+}
+
+
+
+
+.rightElements{
+    opacity: 0;
+    transform: translateX(120px);
+}
+.leftElements{
+    opacity: 0;
+    transform: translateX(-100px);
+}
+.middleElements{
+    opacity: 0;
+    transform: translateY(120px);
+}
+.showMiddle{
+    opacity: 1;
+    transform: translateY(0px);
+}
+.showRight{
+  opacity: 1;
+  transform:translateX(0px);
+}
+.showLeft{
+    opacity: 1;
+    transform:translateX(0px);
+}
+
+@keyframes popOut {
+   to{
+   opacity: 1 ;
+   }
+}
+
+.project-box{
+    opacity: 0;
+    
+}
+
+@keyframes rotation {
+    from{
+        opacity: 0;
+        transform: perspective(10000px) rotateX(30deg) rotateY(30deg);
+    }
+   to{
+        opacity: 1;
+        transform: perspective(300px) rotateX(0deg) rotateY(0deg);
+    }   
+    
+}
+.showProject1{
+    animation: rotation 1s ease-out forwards ;
+}
+
+.showProject2{
+    animation: rotation 1s ease 0.3s forwards ;
+}
+.showProject3{
+    animation: rotation 1s ease 0.6s  forwards ;
 }

@@ -53,21 +53,69 @@ var typingEffect = new Typed(".typedText", {
   backDelay:2000,
 })
 
+//-------------------------observers ---------------------//
 
 const observer = new IntersectionObserver((entries) =>{
   entries.forEach((entry)=>{
-  console.log(entry)  
   if(entry.isIntersecting){
     entry.target.classList.add('show')
   }
-
   })
-} )
+})
+let skillBar = document.querySelectorAll(".skill-bar")
+let skillPer = document.querySelectorAll(".skill-per")
+skillPer.forEach((el)=> observer.observe(el)) 
 
- let skillBar = document.querySelectorAll(".skill-bar")
- let skillPer = document.querySelectorAll(".skill-per")
- skillPer.forEach((el)=> observer.observe(el)) 
 
+const headersObserver = new IntersectionObserver ((entries)=>{
+  entries.forEach((entry)=>{
+    if(entry.isIntersecting){
+      entry.target.classList.add('showHeaders')
+    }
+  }
+  )
+})
+let headers = document.querySelectorAll('.heading')
+headers.forEach((el)=>headersObserver.observe(el))
+
+const serviceObserver = new IntersectionObserver((entries) => {
+  entries.forEach((entry) => {
+    if (entry.isIntersecting) {
+      if (entry.target.classList.contains('rightElements')) {
+        entry.target.classList.add('showRight');
+      } else if (entry.target.classList.contains('leftElements')) {
+        entry.target.classList.add('showLeft');
+      }else{
+        entry.target.classList.add('showMiddle');
+      }
+    }
+  });
+});
+
+let rightElements = document.querySelectorAll('.rightElements')
+let leftElements =document.querySelectorAll('.leftElements')
+let middleElements=document.querySelectorAll('.middleElements')
+
+middleElements.forEach((el)=>serviceObserver.observe(el))
+rightElements.forEach((el)=>serviceObserver.observe(el))
+leftElements.forEach((el)=>serviceObserver.observe(el))
+
+const projectObserver = new IntersectionObserver((entries) => {
+ let delay = 0
+  entries.forEach((entry) => {
+    delay+=1 
+    if (entry.isIntersecting) {
+      entry.target.classList.add('showProject'+delay);
+    }
+  });
+});
+
+let projects = document.querySelectorAll('.project-box')
+projects.forEach((el)=>projectObserver.observe(el))
+
+projects.forEach((proj)=>console.log(proj.classList))
+
+// ---------------------Email functionality----------------------------------------//
 
  const form = document.querySelector('#contact-form') 
  const Name = document.getElementById("name")
@@ -106,8 +154,6 @@ form.addEventListener("submit",(e)=>{
     form.reset();
   }
 })
-
-
 
   function createMessageDiv(message, color) {
     const div = document.createElement('div');
