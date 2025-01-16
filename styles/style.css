@@ -528,7 +528,7 @@ span {
 
 .skill {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(500px, auto));
+    grid-template-columns: repeat(2, 1fr);
     justify-content: center;
     gap: 1rem;
     margin-top: 2rem;
@@ -589,6 +589,17 @@ span {
     animation-delay: 0.2s;
 }
 
+.skill-per.React {
+    width: 50%;
+    animation-delay: 0.2s;
+}
+
+.skill-per.NodeJS {
+    width: 50%;
+    animation-delay: 0.2s;
+}
+
+
 .skill-per.PHP {
     width: 60%;
     animation-delay: 0.2s;
@@ -599,7 +610,7 @@ span {
     animation-delay: 0.3s;
 }
 
-.skill-per.JAVA {
+.skill-per.EXPRESS {
     width: 50%;
     animation-delay: 0.3s;
 }
@@ -609,8 +620,8 @@ span {
     animation-delay: 0.4s;
 }
 
-.skill-per.MaraiaDB {
-    width: 60%;
+.skill-per.MongoDB {
+    width: 50%;
     animation-delay: 0.5s;
 }
 
